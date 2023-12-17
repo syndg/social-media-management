@@ -1,9 +1,14 @@
-import Link from "next/link";
+import LandingPage from "@/components/landingpage";
 
-import { CreatePost } from "@/app/_components/create-post";
-import { getServerAuthSession } from "@/server/auth";
-import { api } from "@/trpc/server";
-
-export default async function Home() {
-  return <div id="bg-grid" className=""></div>;
+export default function Home() {
+  return (
+    <div>
+      <div id="bg-grid">
+        <div id="blur-grid"></div>
+      </div>
+      <div>
+        <LandingPage />
+      </div>
+    </div>
+  );
 }

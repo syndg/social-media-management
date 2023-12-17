@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@600&display=swap");
 
 @layer base {
   :root {
@@ -76,11 +77,83 @@
 }
 
 #bg-grid {
+  position: fixed;
+  inset: 0;
   will-change: transform;
   background-size: 2.5rem 2.5rem;
-  background-image: linear-gradient(90deg, #8882 1px, transparent 0),
-    linear-gradient(180deg, #8882 1px, transparent 0);
+  background-image: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.133) 1px,
+      transparent 0
+    ),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.133) 1px, transparent 0);
   height: 100vh;
-  width: 100vw;
+  z-index: -2;
+}
+
+#blur-grid {
+  inset: 0;
+  background: radial-gradient(
+    circle,
+    hsla(0, 3%, 15%, 0.6) 0,
+    rgba(26, 26, 26, 0.97) 50%,
+    #000000 100%
+  );
+  height: 100vh;
   z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+  #bg-grid {
+    background-size: 1.5rem 1.5rem;
+  }
+}
+
+.ocean {
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+}
+
+.wave.green-1 {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%239EFF00'/%3E%3C/svg%3E");
+  animation: wave 20s -10s linear infinite;
+}
+
+.wave.green-2 {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%239EFF00'/%3E%3C/svg%3E");
+  bottom: 0;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.5;
+}
+
+.wave.white {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%23FFFFFF'/%3E%3C/svg%3E");
+  bottom: 0;
+  animation: wave 20s -1s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

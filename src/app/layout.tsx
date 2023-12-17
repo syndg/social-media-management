@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 
 import { TRPCReactProvider } from "@/trpc/react";
 import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TRPCReactProvider cookies={cookies().toString()}>
+            <Navbar />
             {children}
           </TRPCReactProvider>
         </ThemeProvider>
