@@ -6,7 +6,7 @@ import { navLinks } from "@/siteConfig";
 
 export default function Navbar() {
   return (
-    <div className="flex items-center justify-evenly bg-zinc-950/40 px-2 py-5 shadow-xl backdrop-blur-lg">
+    <div className="sticky top-0 z-30 flex items-center justify-evenly bg-zinc-950/40 px-2 py-5 shadow-xl backdrop-blur-lg">
       <div className="flex items-center space-x-2 dark:text-white max-lg:hidden">
         <Image
           src="/lolgo.png"
@@ -22,7 +22,7 @@ export default function Navbar() {
           <Link
             key={item.path}
             href={item.path}
-            className="rounded px-4 py-1 font-medium transition duration-200 hover:bg-gray-700/30 hover:text-[#9EFF00]"
+            className="rounded px-4 py-1 font-medium transition duration-200 hover:bg-zinc-700/30 hover:text-[#9EFF00]"
           >
             {item.name}
           </Link>
