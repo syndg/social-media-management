@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Barlow } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const barlow = Barlow({ subsets: ["latin"], weight: ["600", "700", "500"] });
 
@@ -50,9 +51,11 @@ export default function Home() {
           </div>
           <div className="mt-10 flex space-x-5">
             <Button variant="secondary">Our Works</Button>
-            <Button className="bg-primary hover:bg-lime-500 hover:text-black">
-              Get Started
-            </Button>
+            <Link href="/register">
+              <Button className="bg-primary hover:bg-lime-500 hover:text-black">
+                Get Started
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

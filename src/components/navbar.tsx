@@ -21,7 +21,7 @@ export default function Navbar() {
         {navLinks.map((item) => (
           <Link
             key={item.path}
-            href="#"
+            href={item.path}
             className="rounded px-4 py-1 font-medium transition duration-200 hover:bg-gray-700/30 hover:text-[#9EFF00]"
           >
             {item.name}
