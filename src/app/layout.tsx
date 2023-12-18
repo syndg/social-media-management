@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import { cookies } from "next/headers";
 
 import { TRPCReactProvider } from "@/trpc/react";
-import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 
 const inter = Inter({
@@ -24,19 +23,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={`font-sans ${inter.variable}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TRPCReactProvider cookies={cookies().toString()}>
-            <Navbar />
-            {children}
-          </TRPCReactProvider>
-        </ThemeProvider>
+        <TRPCReactProvider cookies={cookies().toString()}>
+          <Navbar />
+          {children}
+        </TRPCReactProvider>
       </body>
     </html>
   );
