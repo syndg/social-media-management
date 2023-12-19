@@ -27,9 +27,9 @@ const formSchema = z
     email: z.string().email(),
     password: z
       .string()
-      .regex(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9]).{8,}$/, {
+      .regex(/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+])(?=.{8,})[a-zA-Z0-9!@#$%^&*()_+]+$/, {
         message:
-          "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+          "Password should be minimum 8 characters and include at least one uppercase letter & special char",
       }),
     confirmPassword: z.string(),
     termsAndConditions: z.boolean().default(false).optional(),
@@ -47,16 +47,16 @@ export const SignInForm = () => {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit((data) => console.log(data))}
-        className="mx-5 grid max-w-lg rounded-md border bg-zinc-900/30 px-8 py-12 backdrop-blur-sm"
+        onSubmit={form.handleSubmit((data) => console.log(data))}//submit handler
+        className="mx-5 grid max-w-lg rounded-md border bg-zinc-900/30 px-8 py-12 backdrop-blur-sm "
       >
         <div className="text-center">
-          <h1 className="text-3xl font-medium">Set Up Your Account</h1>
+          <h1 className="text-3xl font-medium">Let's Get Started!</h1>
           <p className="mt-2 text-gray-500">
-            Some Random Paragraph to convince people
+            Create an account to get all features
           </p>
         </div>
-        <div className="mt-5 grid gap-4">
+        <div className="mt-5 grid gap-4 ">
           <CustomInput
             control={form.control}
             name="username"
@@ -90,18 +90,16 @@ export const SignInForm = () => {
                       className="mt-1"
                     />
                   </FormControl>
-                  <div className="space-y-1 leading-none">
-                    <FormLabel>Accept terms and conditions</FormLabel>
-                    <FormDescription>
-                      You agree to our terms and conditions
-                    </FormDescription>
+                  <div className="space-y-1 leading-none pt-[2px]">
+                    <FormLabel>Agree to terms & conditions</FormLabel>
+               
                   </div>
                 </FormItem>
               )}
             />
           </div>
           <div className="h-[0.5px] bg-primary"></div>
-          <Button type="submit" className="bg-primary hover:bg-lime-400">
+          <Button type="submit" className="bg-primary hover:bg-lime-400 w-[80%] mx-auto ">
             Continue
           </Button>
         </div>
