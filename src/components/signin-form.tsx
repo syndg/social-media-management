@@ -71,11 +71,13 @@ export const SignInForm = () => {
             control={form.control}
             name="password"
             placeholerText="Password"
+            type="password"
           />
           <CustomInput
             control={form.control}
             name="confirmPassword"
             placeholerText="Confirm Password"
+            type="password"
           />
           <div className="grid">
             <FormField

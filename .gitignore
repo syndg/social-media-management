@@ -40,3 +40,10 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
+
+package-lock.json
