@@ -13,6 +13,7 @@ type CustomFormFieldProps = {
   placeholerText?: string;
   optional?: boolean;
   disabled?: boolean;
+  type?: "text" | "password";
 };
 
 const CustomInput = <
@@ -22,6 +23,7 @@ const CustomInput = <
   label,
   placeholerText,
   optional = false,
+  type = "text",
   disabled,
   ...props
 }: Omit<ControllerProps<TFieldValues, TName>, "render"> &
@@ -39,6 +41,7 @@ const CustomInput = <
             </FormLabel>
             <FormControl>
               <Input
+                type={type}
                 placeholder={placeholerText}
                 {...field}
                 disabled={disabled}
